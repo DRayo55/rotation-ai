@@ -1,0 +1,381 @@
+utcDate,status,home_team_name,away_team_name,score_home,score_away
+2025-08-17,FINISHED,Manchester United,Arsenal,0.0,1.0
+2025-08-23,FINISHED,Arsenal,Leeds United,5.0,0.0
+2025-08-31,FINISHED,Liverpool,Arsenal,1.0,0.0
+2025-09-13,FINISHED,Arsenal,Nottingham Forest,3.0,0.0
+2025-09-21,FINISHED,Arsenal,Manchester City,1.0,1.0
+2025-09-28,FINISHED,Newcastle United,Arsenal,1.0,2.0
+2025-10-04,FINISHED,Arsenal,West Ham United,2.0,0.0
+2025-10-18,FINISHED,Fulham,Arsenal,0.0,1.0
+2025-10-26,FINISHED,Arsenal,Crystal Palace,1.0,0.0
+2025-11-01,FINISHED,Burnley,Arsenal,0.0,2.0
+2025-11-08,FINISHED,Sunderland,Arsenal,2.0,2.0
+2025-11-23,FINISHED,Arsenal,Tottenham Hotspur,4.0,1.0
+2025-11-30,FINISHED,Chelsea,Arsenal,1.0,1.0
+2025-12-03,FINISHED,Arsenal,Brentford,2.0,0.0
+2025-12-06,FINISHED,Aston Villa,Arsenal,2.0,1.0
+2025-12-13,FINISHED,Arsenal,Wolverhampton,2.0,1.0
+2025-12-20,FINISHED,Everton,Arsenal,0.0,1.0
+2025-12-27,FINISHED,Arsenal,Brighton & Hove Albion,2.0,1.0
+2025-12-30,FINISHED,Arsenal,Aston Villa,4.0,1.0
+2026-01-03,FINISHED,Bournemouth,Arsenal,2.0,3.0
+2026-01-08,FINISHED,Arsenal,Liverpool,0.0,0.0
+2026-01-17,FINISHED,Nottingham Forest,Arsenal,0.0,0.0
+2026-01-25,FINISHED,Arsenal,Manchester United,2.0,3.0
+2026-01-31,FINISHED,Leeds United,Arsenal,0.0,4.0
+2026-02-07,FINISHED,Arsenal,Sunderland,3.0,0.0
+2026-02-12,FINISHED,Brentford,Arsenal,1.0,1.0
+2026-02-18,TIMED,Wolverhampton,Arsenal,,
+2026-02-22,TIMED,Tottenham Hotspur,Arsenal,,
+2026-03-01,TIMED,Arsenal,Chelsea,,
+2026-03-04,TIMED,Brighton & Hove Albion,Arsenal,,
+2026-03-15,TIMED,Arsenal,Everton,,
+2026-04-11,TIMED,Arsenal,Bournemouth,,
+2026-04-18,TIMED,Manchester City,Arsenal,,
+2026-04-25,TIMED,Arsenal,Newcastle United,,
+2026-05-02,TIMED,Arsenal,Fulham,,
+2026-05-09,TIMED,West Ham United,Arsenal,,
+2026-05-17,TIMED,Arsenal,Burnley,,
+2026-05-24,TIMED,Crystal Palace,Arsenal,,
+2025-08-16,FINISHED,Aston Villa,Newcastle United,0.0,0.0
+2025-08-23,FINISHED,Brentford,Aston Villa,1.0,0.0
+2025-08-31,FINISHED,Aston Villa,Crystal Palace,0.0,3.0
+2025-09-13,FINISHED,Everton,Aston Villa,0.0,0.0
+2025-09-21,FINISHED,Sunderland,Aston Villa,1.0,1.0
+2025-09-28,FINISHED,Aston Villa,Fulham,3.0,1.0
+2025-10-05,FINISHED,Aston Villa,Burnley,2.0,1.0
+2025-10-19,FINISHED,Tottenham Hotspur,Aston Villa,1.0,2.0
+2025-10-26,FINISHED,Aston Villa,Manchester City,1.0,0.0
+2025-11-01,FINISHED,Liverpool,Aston Villa,2.0,0.0
+2025-11-09,FINISHED,Aston Villa,Bournemouth,4.0,0.0
+2025-11-23,FINISHED,Leeds United,Aston Villa,1.0,2.0
+2025-11-30,FINISHED,Aston Villa,Wolverhampton,1.0,0.0
+2025-12-03,FINISHED,Brighton & Hove Albion,Aston Villa,3.0,4.0
+2025-12-14,FINISHED,West Ham United,Aston Villa,2.0,3.0
+2025-12-21,FINISHED,Aston Villa,Manchester United,2.0,1.0
+2025-12-27,FINISHED,Chelsea,Aston Villa,1.0,2.0
+2026-01-03,FINISHED,Aston Villa,Nottingham Forest,3.0,1.0
+2026-01-07,FINISHED,Crystal Palace,Aston Villa,0.0,0.0
+2026-01-18,FINISHED,Aston Villa,Everton,0.0,1.0
+2026-01-25,FINISHED,Newcastle United,Aston Villa,0.0,2.0
+2026-02-01,FINISHED,Aston Villa,Brentford,0.0,1.0
+2026-02-07,FINISHED,Bournemouth,Aston Villa,1.0,1.0
+2026-02-11,FINISHED,Aston Villa,Brighton & Hove Albion,1.0,0.0
+2026-02-21,TIMED,Aston Villa,Leeds United,,
+2026-02-27,TIMED,Wolverhampton,Aston Villa,,
+2026-03-04,TIMED,Aston Villa,Chelsea,,
+2026-03-15,TIMED,Manchester United,Aston Villa,,
+2026-03-22,TIMED,Aston Villa,West Ham United,,
+2026-04-11,TIMED,Nottingham Forest,Aston Villa,,
+2026-04-18,TIMED,Aston Villa,Sunderland,,
+2026-04-25,TIMED,Fulham,Aston Villa,,
+2026-05-02,TIMED,Aston Villa,Tottenham Hotspur,,
+2026-05-09,TIMED,Burnley,Aston Villa,,
+2026-05-17,TIMED,Aston Villa,Liverpool,,
+2026-05-24,TIMED,Manchester City,Aston Villa,,
+2025-08-17,FINISHED,Chelsea,Crystal Palace,0.0,0.0
+2025-08-22,FINISHED,West Ham United,Chelsea,1.0,5.0
+2025-08-30,FINISHED,Chelsea,Fulham,2.0,0.0
+2025-09-13,FINISHED,Brentford,Chelsea,2.0,2.0
+2025-09-20,FINISHED,Manchester United,Chelsea,2.0,1.0
+2025-09-27,FINISHED,Chelsea,Brighton & Hove Albion,1.0,3.0
+2025-10-04,FINISHED,Chelsea,Liverpool,2.0,1.0
+2025-10-18,FINISHED,Nottingham Forest,Chelsea,0.0,3.0
+2025-10-25,FINISHED,Chelsea,Sunderland,1.0,2.0
+2025-11-01,FINISHED,Tottenham Hotspur,Chelsea,0.0,1.0
+2025-11-08,FINISHED,Chelsea,Wolverhampton,3.0,0.0
+2025-11-22,FINISHED,Burnley,Chelsea,0.0,2.0
+2025-12-03,FINISHED,Leeds United,Chelsea,3.0,1.0
+2025-12-06,FINISHED,Bournemouth,Chelsea,0.0,0.0
+2025-12-13,FINISHED,Chelsea,Everton,2.0,0.0
+2025-12-20,FINISHED,Newcastle United,Chelsea,2.0,2.0
+2025-12-30,FINISHED,Chelsea,Bournemouth,2.0,2.0
+2026-01-04,FINISHED,Manchester City,Chelsea,1.0,1.0
+2026-01-07,FINISHED,Fulham,Chelsea,2.0,1.0
+2026-01-17,FINISHED,Chelsea,Brentford,2.0,0.0
+2026-01-25,FINISHED,Crystal Palace,Chelsea,1.0,3.0
+2026-01-31,FINISHED,Chelsea,West Ham United,3.0,2.0
+2026-02-07,FINISHED,Wolverhampton,Chelsea,1.0,3.0
+2026-02-10,FINISHED,Chelsea,Leeds United,2.0,2.0
+2026-02-21,TIMED,Chelsea,Burnley,,
+2026-03-14,TIMED,Chelsea,Newcastle United,,
+2026-03-21,TIMED,Everton,Chelsea,,
+2026-04-11,TIMED,Chelsea,Manchester City,,
+2026-04-18,TIMED,Chelsea,Manchester United,,
+2026-04-25,TIMED,Brighton & Hove Albion,Chelsea,,
+2026-05-02,TIMED,Chelsea,Nottingham Forest,,
+2026-05-09,TIMED,Liverpool,Chelsea,,
+2026-05-17,TIMED,Chelsea,Tottenham Hotspur,,
+2026-05-24,TIMED,Sunderland,Chelsea,,
+2025-08-18,FINISHED,Leeds United,Everton,1.0,0.0
+2025-08-24,FINISHED,Everton,Brighton & Hove Albion,2.0,0.0
+2025-08-30,FINISHED,Wolverhampton,Everton,2.0,3.0
+2025-09-20,FINISHED,Liverpool,Everton,2.0,1.0
+2025-09-29,FINISHED,Everton,West Ham United,1.0,1.0
+2025-10-05,FINISHED,Everton,Crystal Palace,2.0,1.0
+2025-10-18,FINISHED,Manchester City,Everton,2.0,0.0
+2025-10-26,FINISHED,Everton,Tottenham Hotspur,0.0,3.0
+2025-11-03,FINISHED,Sunderland,Everton,1.0,1.0
+2025-11-08,FINISHED,Everton,Fulham,2.0,0.0
+2025-11-24,FINISHED,Manchester United,Everton,0.0,1.0
+2025-11-29,FINISHED,Everton,Newcastle United,1.0,4.0
+2025-12-02,FINISHED,Bournemouth,Everton,0.0,1.0
+2025-12-06,FINISHED,Everton,Nottingham Forest,3.0,0.0
+2025-12-27,FINISHED,Burnley,Everton,0.0,0.0
+2025-12-30,FINISHED,Nottingham Forest,Everton,0.0,2.0
+2026-01-04,FINISHED,Everton,Brentford,2.0,4.0
+2026-01-07,FINISHED,Everton,Wolverhampton,1.0,1.0
+2026-01-26,FINISHED,Everton,Leeds United,1.0,1.0
+2026-01-31,FINISHED,Brighton & Hove Albion,Everton,1.0,1.0
+2026-02-07,FINISHED,Fulham,Everton,1.0,2.0
+2026-02-10,FINISHED,Everton,Bournemouth,1.0,2.0
+2026-02-23,TIMED,Everton,Manchester United,,
+2026-02-28,TIMED,Newcastle United,Everton,,
+2026-03-03,TIMED,Everton,Burnley,,
+2026-04-11,TIMED,Brentford,Everton,,
+2026-04-18,TIMED,Everton,Liverpool,,
+2026-04-25,TIMED,West Ham United,Everton,,
+2026-05-02,TIMED,Everton,Manchester City,,
+2026-05-09,TIMED,Crystal Palace,Everton,,
+2026-05-17,TIMED,Everton,Sunderland,,
+2026-05-24,TIMED,Tottenham Hotspur,Everton,,
+2025-08-16,FINISHED,Brighton & Hove Albion,Fulham,1.0,1.0
+2025-08-24,FINISHED,Fulham,Manchester United,1.0,1.0
+2025-09-13,FINISHED,Fulham,Leeds United,1.0,0.0
+2025-09-20,FINISHED,Fulham,Brentford,3.0,1.0
+2025-10-03,FINISHED,Bournemouth,Fulham,3.0,1.0
+2025-10-25,FINISHED,Newcastle United,Fulham,2.0,1.0
+2025-11-01,FINISHED,Fulham,Wolverhampton,3.0,0.0
+2025-11-22,FINISHED,Fulham,Sunderland,1.0,0.0
+2025-11-29,FINISHED,Tottenham Hotspur,Fulham,1.0,2.0
+2025-12-02,FINISHED,Fulham,Manchester City,4.0,5.0
+2025-12-07,FINISHED,Fulham,Crystal Palace,1.0,2.0
+2025-12-13,FINISHED,Burnley,Fulham,2.0,3.0
+2025-12-22,FINISHED,Fulham,Nottingham Forest,1.0,0.0
+2025-12-27,FINISHED,West Ham United,Fulham,0.0,1.0
+2026-01-01,FINISHED,Crystal Palace,Fulham,1.0,1.0
+2026-01-04,FINISHED,Fulham,Liverpool,2.0,2.0
+2026-01-17,FINISHED,Leeds United,Fulham,1.0,0.0
+2026-01-24,FINISHED,Fulham,Brighton & Hove Albion,2.0,1.0
+2026-02-01,FINISHED,Manchester United,Fulham,3.0,2.0
+2026-02-11,FINISHED,Manchester City,Fulham,3.0,0.0
+2026-02-22,TIMED,Sunderland,Fulham,,
+2026-03-01,TIMED,Fulham,Tottenham Hotspur,,
+2026-03-04,TIMED,Fulham,West Ham United,,
+2026-03-14,TIMED,Nottingham Forest,Fulham,,
+2026-03-21,TIMED,Fulham,Burnley,,
+2026-04-11,TIMED,Liverpool,Fulham,,
+2026-04-18,TIMED,Brentford,Fulham,,
+2026-05-09,TIMED,Fulham,Bournemouth,,
+2026-05-17,TIMED,Wolverhampton,Fulham,,
+2026-05-24,TIMED,Fulham,Newcastle United,,
+2025-08-15,FINISHED,Liverpool,Bournemouth,4.0,2.0
+2025-08-25,FINISHED,Newcastle United,Liverpool,2.0,3.0
+2025-09-14,FINISHED,Burnley,Liverpool,0.0,1.0
+2025-09-27,FINISHED,Crystal Palace,Liverpool,2.0,1.0
+2025-10-19,FINISHED,Liverpool,Manchester United,1.0,2.0
+2025-10-25,FINISHED,Brentford,Liverpool,3.0,2.0
+2025-11-09,FINISHED,Manchester City,Liverpool,3.0,0.0
+2025-11-22,FINISHED,Liverpool,Nottingham Forest,0.0,3.0
+2025-11-30,FINISHED,West Ham United,Liverpool,0.0,2.0
+2025-12-03,FINISHED,Liverpool,Sunderland,1.0,1.0
+2025-12-06,FINISHED,Leeds United,Liverpool,3.0,3.0
+2025-12-13,FINISHED,Liverpool,Brighton & Hove Albion,2.0,0.0
+2025-12-20,FINISHED,Tottenham Hotspur,Liverpool,1.0,2.0
+2025-12-27,FINISHED,Liverpool,Wolverhampton,2.0,1.0
+2026-01-01,FINISHED,Liverpool,Leeds United,0.0,0.0
+2026-01-17,FINISHED,Liverpool,Burnley,1.0,1.0
+2026-01-24,FINISHED,Bournemouth,Liverpool,3.0,2.0
+2026-01-31,FINISHED,Liverpool,Newcastle United,4.0,1.0
+2026-02-08,FINISHED,Liverpool,Manchester City,1.0,2.0
+2026-02-11,FINISHED,Sunderland,Liverpool,0.0,1.0
+2026-02-22,TIMED,Nottingham Forest,Liverpool,,
+2026-02-28,TIMED,Liverpool,West Ham United,,
+2026-03-03,TIMED,Wolverhampton,Liverpool,,
+2026-03-15,TIMED,Liverpool,Tottenham Hotspur,,
+2026-03-21,TIMED,Brighton & Hove Albion,Liverpool,,
+2026-04-25,TIMED,Liverpool,Crystal Palace,,
+2026-05-02,TIMED,Manchester United,Liverpool,,
+2026-05-24,TIMED,Liverpool,Brentford,,
+2025-08-16,FINISHED,Wolverhampton,Manchester City,0.0,4.0
+2025-08-23,FINISHED,Manchester City,Tottenham Hotspur,0.0,2.0
+2025-08-31,FINISHED,Brighton & Hove Albion,Manchester City,2.0,1.0
+2025-09-14,FINISHED,Manchester City,Manchester United,3.0,0.0
+2025-09-27,FINISHED,Manchester City,Burnley,5.0,1.0
+2025-10-05,FINISHED,Brentford,Manchester City,0.0,1.0
+2025-11-02,FINISHED,Manchester City,Bournemouth,3.0,1.0
+2025-11-22,FINISHED,Newcastle United,Manchester City,2.0,1.0
+2025-11-29,FINISHED,Manchester City,Leeds United,3.0,2.0
+2025-12-06,FINISHED,Manchester City,Sunderland,3.0,0.0
+2025-12-14,FINISHED,Crystal Palace,Manchester City,0.0,3.0
+2025-12-20,FINISHED,Manchester City,West Ham United,3.0,0.0
+2025-12-27,FINISHED,Nottingham Forest,Manchester City,1.0,2.0
+2026-01-01,FINISHED,Sunderland,Manchester City,0.0,0.0
+2026-01-07,FINISHED,Manchester City,Brighton & Hove Albion,1.0,1.0
+2026-01-17,FINISHED,Manchester United,Manchester City,2.0,0.0
+2026-01-24,FINISHED,Manchester City,Wolverhampton,2.0,0.0
+2026-02-01,FINISHED,Tottenham Hotspur,Manchester City,2.0,2.0
+2026-02-21,TIMED,Manchester City,Newcastle United,,
+2026-02-28,TIMED,Leeds United,Manchester City,,
+2026-03-04,TIMED,Manchester City,Nottingham Forest,,
+2026-03-14,TIMED,West Ham United,Manchester City,,
+2026-03-21,POSTPONED,Manchester City,Crystal Palace,,
+2026-04-25,TIMED,Burnley,Manchester City,,
+2026-05-09,TIMED,Manchester City,Brentford,,
+2026-05-17,TIMED,Bournemouth,Manchester City,,
+2025-08-30,FINISHED,Manchester United,Burnley,3.0,2.0
+2025-09-27,FINISHED,Brentford,Manchester United,3.0,1.0
+2025-10-04,FINISHED,Manchester United,Sunderland,2.0,0.0
+2025-10-25,FINISHED,Manchester United,Brighton & Hove Albion,4.0,2.0
+2025-11-01,FINISHED,Nottingham Forest,Manchester United,2.0,2.0
+2025-11-08,FINISHED,Tottenham Hotspur,Manchester United,2.0,2.0
+2025-11-30,FINISHED,Crystal Palace,Manchester United,1.0,2.0
+2025-12-04,FINISHED,Manchester United,West Ham United,1.0,1.0
+2025-12-08,FINISHED,Wolverhampton,Manchester United,1.0,4.0
+2025-12-15,FINISHED,Manchester United,Bournemouth,4.0,4.0
+2025-12-26,FINISHED,Manchester United,Newcastle United,1.0,0.0
+2025-12-30,FINISHED,Manchester United,Wolverhampton,1.0,1.0
+2026-01-04,FINISHED,Leeds United,Manchester United,1.0,1.0
+2026-01-07,FINISHED,Burnley,Manchester United,2.0,2.0
+2026-02-07,FINISHED,Manchester United,Tottenham Hotspur,2.0,0.0
+2026-02-10,FINISHED,West Ham United,Manchester United,1.0,1.0
+2026-03-01,TIMED,Manchester United,Crystal Palace,,
+2026-03-04,TIMED,Newcastle United,Manchester United,,
+2026-03-20,TIMED,Bournemouth,Manchester United,,
+2026-04-11,TIMED,Manchester United,Leeds United,,
+2026-04-25,TIMED,Manchester United,Brentford,,
+2026-05-09,TIMED,Sunderland,Manchester United,,
+2026-05-17,TIMED,Manchester United,Nottingham Forest,,
+2026-05-24,TIMED,Brighton & Hove Albion,Manchester United,,
+2025-08-30,FINISHED,Leeds United,Newcastle United,0.0,0.0
+2025-09-13,FINISHED,Newcastle United,Wolverhampton,1.0,0.0
+2025-09-21,FINISHED,Bournemouth,Newcastle United,0.0,0.0
+2025-10-05,FINISHED,Newcastle United,Nottingham Forest,2.0,0.0
+2025-10-18,FINISHED,Brighton & Hove Albion,Newcastle United,2.0,1.0
+2025-11-02,FINISHED,West Ham United,Newcastle United,3.0,1.0
+2025-11-09,FINISHED,Brentford,Newcastle United,3.0,1.0
+2025-12-02,FINISHED,Newcastle United,Tottenham Hotspur,2.0,2.0
+2025-12-06,FINISHED,Newcastle United,Burnley,2.0,1.0
+2025-12-14,FINISHED,Sunderland,Newcastle United,1.0,0.0
+2025-12-30,FINISHED,Burnley,Newcastle United,1.0,3.0
+2026-01-04,FINISHED,Newcastle United,Crystal Palace,2.0,0.0
+2026-01-07,FINISHED,Newcastle United,Leeds United,4.0,3.0
+2026-01-18,FINISHED,Wolverhampton,Newcastle United,0.0,0.0
+2026-02-07,FINISHED,Newcastle United,Brentford,2.0,3.0
+2026-02-10,FINISHED,Tottenham Hotspur,Newcastle United,1.0,2.0
+2026-03-22,TIMED,Newcastle United,Sunderland,,
+2026-04-11,TIMED,Crystal Palace,Newcastle United,,
+2026-04-18,TIMED,Newcastle United,Bournemouth,,
+2026-05-02,TIMED,Newcastle United,Brighton & Hove Albion,,
+2026-05-09,TIMED,Nottingham Forest,Newcastle United,,
+2026-05-17,TIMED,Newcastle United,West Ham United,,
+2025-08-16,FINISHED,Sunderland,West Ham United,3.0,0.0
+2025-08-23,FINISHED,Burnley,Sunderland,2.0,0.0
+2025-08-30,FINISHED,Sunderland,Brentford,2.0,1.0
+2025-09-13,FINISHED,Crystal Palace,Sunderland,0.0,0.0
+2025-09-27,FINISHED,Nottingham Forest,Sunderland,0.0,1.0
+2025-10-18,FINISHED,Sunderland,Wolverhampton,2.0,0.0
+2025-11-29,FINISHED,Sunderland,Bournemouth,3.0,2.0
+2025-12-20,FINISHED,Brighton & Hove Albion,Sunderland,0.0,0.0
+2025-12-28,FINISHED,Sunderland,Leeds United,1.0,1.0
+2026-01-04,FINISHED,Tottenham Hotspur,Sunderland,1.0,1.0
+2026-01-07,FINISHED,Brentford,Sunderland,3.0,0.0
+2026-01-17,FINISHED,Sunderland,Crystal Palace,2.0,1.0
+2026-01-24,FINISHED,West Ham United,Sunderland,3.0,1.0
+2026-02-02,FINISHED,Sunderland,Burnley,3.0,0.0
+2026-02-28,TIMED,Bournemouth,Sunderland,,
+2026-03-03,TIMED,Leeds United,Sunderland,,
+2026-03-14,TIMED,Sunderland,Brighton & Hove Albion,,
+2026-04-11,TIMED,Sunderland,Tottenham Hotspur,,
+2026-04-25,TIMED,Sunderland,Nottingham Forest,,
+2026-05-02,TIMED,Wolverhampton,Sunderland,,
+2025-08-16,FINISHED,Tottenham Hotspur,Burnley,3.0,0.0
+2025-08-30,FINISHED,Tottenham Hotspur,Bournemouth,0.0,1.0
+2025-09-13,FINISHED,West Ham United,Tottenham Hotspur,0.0,3.0
+2025-09-20,FINISHED,Brighton & Hove Albion,Tottenham Hotspur,2.0,2.0
+2025-09-27,FINISHED,Tottenham Hotspur,Wolverhampton,1.0,1.0
+2025-10-04,FINISHED,Leeds United,Tottenham Hotspur,1.0,2.0
+2025-12-06,FINISHED,Tottenham Hotspur,Brentford,2.0,0.0
+2025-12-14,FINISHED,Nottingham Forest,Tottenham Hotspur,3.0,0.0
+2025-12-28,FINISHED,Crystal Palace,Tottenham Hotspur,0.0,1.0
+2026-01-01,FINISHED,Brentford,Tottenham Hotspur,0.0,0.0
+2026-01-07,FINISHED,Bournemouth,Tottenham Hotspur,3.0,2.0
+2026-01-17,FINISHED,Tottenham Hotspur,West Ham United,1.0,2.0
+2026-01-24,FINISHED,Burnley,Tottenham Hotspur,2.0,2.0
+2026-03-05,TIMED,Tottenham Hotspur,Crystal Palace,,
+2026-03-22,TIMED,Tottenham Hotspur,Nottingham Forest,,
+2026-04-18,TIMED,Tottenham Hotspur,Brighton & Hove Albion,,
+2026-04-25,TIMED,Wolverhampton,Tottenham Hotspur,,
+2026-05-09,TIMED,Tottenham Hotspur,Leeds United,,
+2025-08-23,FINISHED,Bournemouth,Wolverhampton,1.0,0.0
+2025-09-20,FINISHED,Wolverhampton,Leeds United,1.0,3.0
+2025-10-05,FINISHED,Wolverhampton,Brighton & Hove Albion,1.0,1.0
+2025-10-26,FINISHED,Wolverhampton,Burnley,2.0,3.0
+2025-11-22,FINISHED,Wolverhampton,Crystal Palace,0.0,2.0
+2025-12-03,FINISHED,Wolverhampton,Nottingham Forest,0.0,1.0
+2025-12-20,FINISHED,Wolverhampton,Brentford,0.0,2.0
+2026-01-03,FINISHED,Wolverhampton,West Ham United,3.0,0.0
+2026-01-31,FINISHED,Wolverhampton,Bournemouth,0.0,2.0
+2026-02-11,FINISHED,Nottingham Forest,Wolverhampton,0.0,0.0
+2026-02-22,TIMED,Crystal Palace,Wolverhampton,,
+2026-03-16,TIMED,Brentford,Wolverhampton,,
+2026-04-11,TIMED,West Ham United,Wolverhampton,,
+2026-04-18,TIMED,Leeds United,Wolverhampton,,
+2026-05-09,TIMED,Brighton & Hove Albion,Wolverhampton,,
+2026-05-24,TIMED,Burnley,Wolverhampton,,
+2025-09-20,FINISHED,Burnley,Nottingham Forest,1.0,1.0
+2025-10-18,FINISHED,Burnley,Leeds United,2.0,0.0
+2025-11-08,FINISHED,West Ham United,Burnley,3.0,2.0
+2025-11-29,FINISHED,Brentford,Burnley,3.0,1.0
+2025-12-03,FINISHED,Burnley,Crystal Palace,0.0,1.0
+2025-12-20,FINISHED,Bournemouth,Burnley,1.0,1.0
+2026-01-03,FINISHED,Brighton & Hove Albion,Burnley,2.0,0.0
+2026-02-07,FINISHED,Burnley,West Ham United,0.0,2.0
+2026-02-11,FINISHED,Crystal Palace,Burnley,2.0,3.0
+2026-02-28,TIMED,Burnley,Brentford,,
+2026-03-14,TIMED,Burnley,Bournemouth,,
+2026-04-11,TIMED,Burnley,Brighton & Hove Albion,,
+2026-04-18,TIMED,Nottingham Forest,Burnley,,
+2026-05-02,TIMED,Leeds United,Burnley,,
+2025-09-27,FINISHED,Leeds United,Bournemouth,2.0,2.0
+2025-10-24,FINISHED,Leeds United,West Ham United,2.0,1.0
+2025-11-01,FINISHED,Brighton & Hove Albion,Leeds United,3.0,0.0
+2025-11-09,FINISHED,Nottingham Forest,Leeds United,3.0,1.0
+2025-12-14,FINISHED,Brentford,Leeds United,1.0,1.0
+2025-12-20,FINISHED,Leeds United,Crystal Palace,4.0,1.0
+2026-02-06,FINISHED,Leeds United,Nottingham Forest,3.0,1.0
+2026-03-14,TIMED,Crystal Palace,Leeds United,,
+2026-03-21,TIMED,Leeds United,Brentford,,
+2026-04-25,TIMED,Bournemouth,Leeds United,,
+2026-05-17,TIMED,Leeds United,Brighton & Hove Albion,,
+2026-05-24,TIMED,West Ham United,Leeds United,,
+2025-08-17,FINISHED,Nottingham Forest,Brentford,3.0,1.0
+2025-08-24,FINISHED,Crystal Palace,Nottingham Forest,1.0,1.0
+2025-08-31,FINISHED,Nottingham Forest,West Ham United,0.0,3.0
+2025-10-26,FINISHED,Bournemouth,Nottingham Forest,2.0,0.0
+2025-11-30,FINISHED,Nottingham Forest,Brighton & Hove Albion,0.0,2.0
+2026-01-06,FINISHED,West Ham United,Nottingham Forest,1.0,2.0
+2026-01-25,FINISHED,Brentford,Nottingham Forest,0.0,2.0
+2026-02-01,FINISHED,Nottingham Forest,Crystal Palace,1.0,1.0
+2026-03-01,TIMED,Brighton & Hove Albion,Nottingham Forest,,
+2026-05-24,TIMED,Nottingham Forest,Bournemouth,,
+2025-09-20,FINISHED,West Ham United,Crystal Palace,1.0,2.0
+2025-10-18,FINISHED,Crystal Palace,Bournemouth,3.0,3.0
+2025-11-01,FINISHED,Crystal Palace,Brentford,2.0,0.0
+2025-11-09,FINISHED,Crystal Palace,Brighton & Hove Albion,0.0,0.0
+2026-02-08,FINISHED,Brighton & Hove Albion,Crystal Palace,0.0,1.0
+2026-04-18,TIMED,Crystal Palace,West Ham United,,
+2026-05-02,TIMED,Bournemouth,Crystal Palace,,
+2026-05-17,TIMED,Brentford,Crystal Palace,,
+2025-09-13,FINISHED,Bournemouth,Brighton & Hove Albion,2.0,1.0
+2025-11-22,FINISHED,Brighton & Hove Albion,Brentford,2.0,1.0
+2025-12-07,FINISHED,Brighton & Hove Albion,West Ham United,1.0,1.0
+2025-12-30,FINISHED,West Ham United,Brighton & Hove Albion,2.0,2.0
+2026-01-19,FINISHED,Brighton & Hove Albion,Bournemouth,1.0,1.0
+2026-02-21,TIMED,Brentford,Brighton & Hove Albion,,
+2025-10-20,FINISHED,West Ham United,Brentford,0.0,2.0
+2025-12-27,FINISHED,Brentford,Bournemouth,4.0,1.0
+2026-03-03,TIMED,Bournemouth,Brentford,,
+2026-05-02,TIMED,Brentford,West Ham United,,
+2025-11-22,FINISHED,Bournemouth,West Ham United,2.0,2.0
+2026-02-21,TIMED,West Ham United,Bournemouth,,
