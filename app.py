@@ -14,27 +14,28 @@ st.set_page_config(
 )
 
 # Diccionario con URLs de escudos de equipos
+
 TEAM_BADGES = {
-    'Arsenal': 'https://img.sofascore.com/api/v1/team/42/image',
-    'Manchester City': 'https://img.sofascore.com/api/v1/team/17/image',
-    'Aston Villa': 'https://img.sofascore.com/api/v1/team/40/image',
-    'Manchester United': 'https://img.sofascore.com/api/v1/team/35/image',
-    'Chelsea': 'https://img.sofascore.com/api/v1/team/38/image',
-    'Liverpool': 'https://img.sofascore.com/api/v1/team/44/image',
-    'Brentford': 'https://img.sofascore.com/api/v1/team/50/image',
-    'Everton': 'https://img.sofascore.com/api/v1/team/48/image',
-    'Bournemouth': 'https://img.sofascore.com/api/v1/team/60/image',
-    'Newcastle United': 'https://img.sofascore.com/api/v1/team/39/image',
-    'Sunderland': 'https://img.sofascore.com/api/v1/team/41/image',
-    'Fulham': 'https://img.sofascore.com/api/v1/team/43/image',
-    'Crystal Palace': 'https://img.sofascore.com/api/v1/team/7/image',
-    'Brighton & Hove Albion': 'https://img.sofascore.com/api/v1/team/30/image',
-    'Leeds United': 'https://img.sofascore.com/api/v1/team/34/image',
-    'Tottenham Hotspur': 'https://img.sofascore.com/api/v1/team/33/image',
-    'Nottingham Forest': 'https://img.sofascore.com/api/v1/team/14/image',
-    'West Ham United': 'https://img.sofascore.com/api/v1/team/37/image',
-    'Burnley': 'https://img.sofascore.com/api/v1/team/6/image',
-    'Wolverhampton': 'https://img.sofascore.com/api/v1/team/3/image'
+    'Arsenal': 'https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg',
+    'Manchester City': 'https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg',
+    'Aston Villa': 'https://upload.wikimedia.org/wikipedia/en/f/f9/Aston_Villa_FC_crest_%282016%29.svg',
+    'Manchester United': 'https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg',
+    'Chelsea': 'https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg',
+    'Liverpool': 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg',
+    'Brighton & Hove Albion': 'https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg',
+    'Newcastle United': 'https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg',
+    'Tottenham Hotspur': 'https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg',
+    'Brentford': 'https://upload.wikimedia.org/wikipedia/en/2/2a/Brentford_FC_crest.svg',
+    'Everton': 'https://upload.wikimedia.org/wikipedia/en/7/7c/Everton_FC_logo.svg',
+    'Bournemouth': 'https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth_%282013%29.svg',
+    'West Ham United': 'https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg',
+    'Fulham': 'https://upload.wikimedia.org/wikipedia/en/e/eb/Fulham_FC_%28shield%29.svg',
+    'Crystal Palace': 'https://upload.wikimedia.org/wikipedia/en/0/0c/Crystal_Palace_FC_logo.svg',
+    'Wolverhampton': 'https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg',
+    'Nottingham Forest': 'https://upload.wikimedia.org/wikipedia/en/e/e5/Nottingham_Forest_F.C._logo.svg',
+    'Burnley': 'https://upload.wikimedia.org/wikipedia/en/6/6d/Burnley_FC_Logo.svg',
+    'Leeds United': 'https://upload.wikimedia.org/wikipedia/en/5/54/Leeds_United_F.C._logo.svg',
+    'Sunderland': 'https://upload.wikimedia.org/wikipedia/en/7/77/Logo_Sunderland.svg'
 }
 
 def get_team_badge(team_name):
