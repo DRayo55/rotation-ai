@@ -18,7 +18,7 @@ st.set_page_config(
 TEAM_BADGES = {
     'Arsenal': 'https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg',
     'Manchester City': 'https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg',
-    'Aston Villa': 'https://resources.premierleague.com/premierleague/badges/50/t7.png',
+    'Aston Villa': 'https://resources.premierleague.com/premierleague25/badges-alt/7.svg',
     'Manchester United': 'https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg',
     'Chelsea': 'https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg',
     'Liverpool': 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg',
