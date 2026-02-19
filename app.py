@@ -527,50 +527,81 @@ def get_feature_columns():
     ]
 
 def select_best_11_by_formation(df, model, scaler, team):
-    team_df = df[df['team'] == team].copy()
 
+    team_df = df[df['team'] == team].copy()
+    
     if len(team_df) == 0:
         return None, None
-
+    
+    # Crear features
     team_df = create_features(team_df)
+    
+
     feature_cols = get_feature_columns()
-    X = team_df[feature_cols]
-    X_scaled = scaler.transform(X)
-
+    
+    # DEBUG: Ver qué columnas tenemos vs qué necesitamos
+    missing_cols = [col for col in feature_cols if col not in team_df.columns]
+    if missing_cols:
+        st.error(f"❌ Columnas faltantes: {missing_cols}")
+        st.info(f"Columnas disponibles: {list(team_df.columns)}")
+        return None, None
+    
+    # Seleccionar SOLO las 16 columnas en el orden correcto
+    X = team_df[feature_cols].copy()
+    
+    # Verificar que no haya NaN o Inf
+    X = X.replace([np.inf, -np.inf], 0)
+    X = X.fillna(0)
+    
+    # DEBUG: Mostrar shape y primeras columnas
+    st.sidebar.info(f"🔢 X shape: {X.shape}")
+    st.sidebar.info(f"📋 Primeras 5 cols: {list(X.columns[:5])}")
+    
+    try:
+        X_scaled = scaler.transform(X)
+    except ValueError as e:
+        st.error(f"❌ Error al escalar: {e}")
+        st.info(f"Features esperadas por scaler: (revisar logs)")
+        st.info(f"Features que tenemos: {list(X.columns)}")
+        return None, None
+    
     probabilities = model.predict_proba(X_scaled)[:, 1]
+    
     team_df['probability'] = probabilities
-
-    formation = {'G': 1, 'D': 4, 'M': 3, 'F': 3}
+    
+    formation = {
+        'G': 1,
+        'D': 4,
+        'M': 3,
+        'F': 3
+    }
+    
     lineup = {}
     starters_ids = []
-
+    
     for position, num_players in formation.items():
         position_players = team_df[team_df['position'] == position].copy()
-
+        
         if len(position_players) == 0:
             lineup[position] = []
             continue
-
+        
         position_players = position_players.sort_values('probability', ascending=False)
         best_players = position_players.head(num_players)
         best_players['rank'] = range(1, len(best_players) + 1)
-
-        starters_ids.extend(best_players['id_player'].tolist())
-
-        lineup[position] = best_players[[
-            'id_player', 'position', 'player_name', 'shirt_number',
-            'probability', 'captain'
-        ]].to_dict('records')
-
-    bench_df = team_df[~team_df['id_player'].isin(starters_ids)].copy()
+        
+        starters_ids.extend(best_players['idplayer'].tolist())
+        lineup[position] = best_players[['idplayer', 'position', 'playername', 
+                                          'shirtnumber', 'probability', 'captain']].to_dict('records')
+    
+    # Banca
+    bench_df = team_df[~team_df['idplayer'].isin(starters_ids)].copy()
     bench_df = bench_df.sort_values('probability', ascending=False)
     bench_df['bench_rank'] = range(1, len(bench_df) + 1)
-
-    bench_players = bench_df[[
-        'id_player', 'player_name', 'shirt_number', 'position', 
-        'probability', 'bench_rank'
-    ]].to_dict('records')
-
+    
+    bench_players = bench_df[['idplayer', 'playername', 'shirtnumber', 
+                               'position', 'probability', 'bench_rank']].to_dict('records')
+    
     return lineup, bench_players
 
 def normalize_team_name(name):
