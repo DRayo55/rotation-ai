@@ -416,90 +416,106 @@ def load_custom_css():
     """, unsafe_allow_html=True)
 
 def calculate_temporal_features_from_history(df_historico):
+    """
+    Calcula SOLO player_last_3_avg desde el histórico
+    """
     df_hist = df_historico.copy()
     df_hist['minutesPlayed'] = df_hist['minutesPlayed'].fillna(0)
 
-    df_hist['player_avg_minutes_temp'] = df_hist.groupby('id_player')['minutesPlayed'].expanding().mean().reset_index(level=0, drop=True)
-    df_hist['player_last_3_avg_temp'] = df_hist.groupby('id_player')['minutesPlayed'].transform(lambda x: x.rolling(3, min_periods=1).mean())
-    df_hist['player_consistency_temp'] = df_hist.groupby('id_player')['minutesPlayed'].expanding().std().reset_index(level=0, drop=True).fillna(0)
-    df_hist['performance_trend_temp'] = df_hist.groupby('id_player')['minutesPlayed'].diff().fillna(0)
+    # Calcular promedio móvil de los últimos 3 partidos
+    df_hist['player_last_3_avg_temp'] = df_hist.groupby('id_player')['minutesPlayed'].transform(
+        lambda x: x.rolling(3, min_periods=1).mean()
+    )
 
+    # Obtener el último valor por jugador
     features_temporales = df_hist.groupby('id_player').agg({
-        'player_avg_minutes_temp': 'last',
-        'player_last_3_avg_temp': 'last',
-        'player_consistency_temp': 'last',
-        'performance_trend_temp': 'last',
-        'team': 'last',
-        'position': 'last',
-        'captain': 'last',
-        'height': 'last',
-        'country_': 'last',
-        'market_value': 'last',
-        'age': 'last'
+        'player_last_3_avg_temp': 'last'
     }).reset_index()
 
     features_temporales.rename(columns={
-        'player_avg_minutes_temp': 'player_avg_minutes',
-        'player_last_3_avg_temp': 'player_last_3_avg',
-        'player_consistency_temp': 'player_consistency',
-        'performance_trend_temp': 'performance_trend'
+        'id_player': 'id_player',
+        'player_last_3_avg_temp': 'player_last_3_avg'
     }, inplace=True)
-
-    features_temporales['momentum'] = features_temporales['player_last_3_avg'] - features_temporales['player_avg_minutes']
 
     return features_temporales
 
 def create_features(df):
     df = df.copy()
-
-    df['market_value_missing'] = df['market_value'].isna().astype(int)
-    df['market_value'] = df['market_value'].fillna(0)
+    
+    required = {
+        'market_value': 0, 'age': 25, 'captain': 0,
+        'player_last_3_avg': 45.0, 'country_': 'Unknown',
+        'position': 'M', 'team': 'Unknown'
+    }
+    for col, default in required.items():
+        if col not in df.columns:
+            df[col] = default
+        df[col] = df[col].fillna(default)
+    
     df['market_value_log'] = np.log1p(df['market_value'])
-    df['value_age_decay'] = df['market_value'] / (df['age'] ** 2)
+    
+    peak_age = 26
+    df['value_age_decay'] = df['market_value'] * np.exp(-0.05 * np.abs(df['age'] - peak_age))
+    
     df['captain_x_market'] = df['captain'] * df['market_value_log']
-
+    
     position_rank = {'G': 1, 'D': 2, 'M': 3, 'F': 4}
-    df['position_rank'] = df['position'].map(position_rank)
+    df['position_rank'] = df['position'].map(position_rank).fillna(3)
     df['position_x_age'] = df['position_rank'] * df['age']
-
+    
+    df['player_convocations'] = np.maximum(df['age'] - 16, 0)
+    
+    team_avg = df.groupby('team')['market_value'].transform('mean')
+    df['team_avg_market_value'] = team_avg
+    df['player_value_vs_team'] = df['market_value'] / (team_avg + 1)
+    
     df['pos_D'] = (df['position'] == 'D').astype(int)
     df['pos_F'] = (df['position'] == 'F').astype(int)
     df['pos_G'] = (df['position'] == 'G').astype(int)
     df['pos_M'] = (df['position'] == 'M').astype(int)
-
-    df['player_convocations'] = df['age'] - 16
-
-    team_avg = df.groupby('team')['market_value'].transform('mean')
-    df['team_avg_market_value'] = team_avg
-    df['player_value_vs_team'] = df['market_value'] / (team_avg + 1)
-
+    
     country_freq = df['country_'].value_counts(normalize=True)
-    df['country_frequency'] = df['country_'].map(country_freq).fillna(0)
-
+    df['country_frequency'] = df['country_'].map(country_freq).fillna(0.01)
+    
     team_freq = df['team'].value_counts(normalize=True)
-    df['team_frequency'] = df['team'].map(team_freq).fillna(0)
-
-    df['age_group'] = pd.cut(df['age'], bins=[0, 21, 25, 29, 33, 50], labels=[0, 1, 2, 3, 4])
-    df['age_group_encoded'] = df['age_group'].astype(int)
-
-    df['market_tier'] = pd.cut(df['market_value'], bins=[0, 1e6, 5e6, 15e6, 30e6, np.inf], labels=[0, 1, 2, 3, 4])
-    df['market_tier_encoded'] = df['market_tier'].astype(int)
-
+    df['team_frequency'] = df['team'].map(team_freq).fillna(0.05)
+    
+    df['age_group'] = pd.cut(
+        df['age'], bins=[0, 21, 25, 29, 33, 50], labels=[0, 1, 2, 3, 4]
+    )
+    df['age_group_encoded'] = df['age_group'].fillna(1).astype(int)
+    
+    df['market_tier'] = pd.cut(
+        df['market_value'], bins=[0, 1e6, 5e6, 15e6, 30e6, np.inf], labels=[0, 1, 2, 3, 4]
+    )
+    df['market_tier_encoded'] = df['market_tier'].fillna(1).astype(int)
+    
     df = df.replace([np.inf, -np.inf], 0)
     df = df.fillna(0)
-
+    
     return df
+
 
 def get_feature_columns():
     return [
-        'market_value_missing', 'market_value_log', 'value_age_decay',
-        'captain_x_market', 'position_x_age', 'player_convocations',
-        'player_avg_minutes', 'player_last_3_avg', 'player_consistency',
-        'performance_trend', 'momentum', 'team_avg_market_value',
-        'player_value_vs_team', 'pos_D', 'pos_F', 'pos_G', 'pos_M',
-        'country_frequency', 'team_frequency', 'age_group_encoded',
+        'market_value_log',
+        'value_age_decay',
+        'captain_x_market',
+        'position_x_age',
+        'player_convocations',
+        'player_last_3_avg',
+        'team_avg_market_value',
+        'player_value_vs_team',
+        'pos_D',
+        'pos_F',
+        'pos_G',
+        'pos_M',
+        'country_frequency',
+        'team_frequency',
+        'age_group_encoded',
         'market_tier_encoded'
     ]
+
 
 def select_best_11_by_formation(df, model, scaler, team):
     team_df = df[df['team'] == team].copy()
@@ -873,8 +889,8 @@ def load_data():
     df_convocatoria = pd.read_csv(convocatoria_path)
 
     df_final = df_convocatoria.merge(
-        df_features_temporales[['id_player', 'player_avg_minutes', 'player_last_3_avg',
-                                 'player_consistency', 'performance_trend', 'momentum']],
+        df_features_temporales[['id_player', 'player_last_3_avg'
+                                 ]],
         on='id_player',
         how='left'
     )
@@ -895,11 +911,7 @@ def load_data():
         df_final['player_name'] = df_final['id_player'].astype(str).apply(lambda x: f"Jugador {x}")
         df_final['shirt_number'] = 0
 
-    df_final['player_avg_minutes'].fillna(45.0, inplace=True)
     df_final['player_last_3_avg'].fillna(45.0, inplace=True)
-    df_final['player_consistency'].fillna(15.0, inplace=True)
-    df_final['performance_trend'].fillna(0.0, inplace=True)
-    df_final['momentum'].fillna(0.0, inplace=True)
 
     df_final['captain'] = df_final['captain'].apply(lambda x: 1 if x in [True, 1, '1'] else 0)
 
