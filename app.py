@@ -590,16 +590,16 @@ def select_best_11_by_formation(df, model, scaler, team):
         best_players = position_players.head(num_players)
         best_players['rank'] = range(1, len(best_players) + 1)
         
-        starters_ids.extend(best_players['idplayer'].tolist())
-        lineup[position] = best_players[['idplayer', 'position', 'playername', 
-                                          'shirtnumber', 'probability', 'captain']].to_dict('records')
+        starters_ids.extend(best_players['id_player'].tolist())
+        lineup[position] = best_players[['id_player', 'position', 'player_name', 
+                                          'shirt_number', 'probability', 'captain']].to_dict('records')
     
     # Banca
-    bench_df = team_df[~team_df['idplayer'].isin(starters_ids)].copy()
+    bench_df = team_df[~team_df['id_player'].isin(starters_ids)].copy()
     bench_df = bench_df.sort_values('probability', ascending=False)
     bench_df['bench_rank'] = range(1, len(bench_df) + 1)
     
-    bench_players = bench_df[['idplayer', 'playername', 'shirtnumber', 
+    bench_players = bench_df[['id_player', 'player_name', 'shirt_number', 
                                'position', 'probability', 'bench_rank']].to_dict('records')
     
     return lineup, bench_players
@@ -950,7 +950,7 @@ def load_data():
         df_final['shirt_number'] = df_final['shirt_number'].fillna(0).astype(int)
     else:
         st.warning("⚠️ No se encontró data/jugadores_info.csv")
-        df_final['player_name'] = df_final['idplayer'].astype(str).apply(lambda x: f"Jugador {x}")
+        df_final['player_name'] = df_final['id_player'].astype(str).apply(lambda x: f"Jugador {x}")
         df_final['shirt_number'] = 0
  
     df_final['player_last_3_avg'].fillna(45.0, inplace=True)
