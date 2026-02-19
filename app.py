@@ -416,20 +416,19 @@ def load_custom_css():
     """, unsafe_allow_html=True)
 
 def calculate_temporal_features_from_history(df_historico):
- 
     df_hist = df_historico.copy()
-    
-    # Asegurar que minutesPlayed existe
     df_hist['minutesPlayed'] = df_hist['minutesPlayed'].fillna(0)
-    
-    # SOLO calcular player_last3_avg (promedio móvil de últimos 3 partidos)
-    df_hist['player_last_3_avg_temp'] = df_hist.groupby('id_player')['minutesPlayed'].transform(
-        lambda x: x.rolling(3, min_periods=1).mean()
-    )
-    
-    # Agrupar para obtener el último valor de cada jugador
+
+    df_hist['player_avg_minutes_temp'] = df_hist.groupby('id_player')['minutesPlayed'].expanding().mean().reset_index(level=0, drop=True)
+    df_hist['player_last_3_avg_temp'] = df_hist.groupby('id_player')['minutesPlayed'].transform(lambda x: x.rolling(3, min_periods=1).mean())
+    df_hist['player_consistency_temp'] = df_hist.groupby('id_player')['minutesPlayed'].expanding().std().reset_index(level=0, drop=True).fillna(0)
+    df_hist['performance_trend_temp'] = df_hist.groupby('id_player')['minutesPlayed'].diff().fillna(0)
+
     features_temporales = df_hist.groupby('id_player').agg({
+        'player_avg_minutes_temp': 'last',
         'player_last_3_avg_temp': 'last',
+        'player_consistency_temp': 'last',
+        'performance_trend_temp': 'last',
         'team': 'last',
         'position': 'last',
         'captain': 'last',
@@ -438,170 +437,115 @@ def calculate_temporal_features_from_history(df_historico):
         'market_value': 'last',
         'age': 'last'
     }).reset_index()
-    
-    # Renombrar para que coincida con el feature final
+
     features_temporales.rename(columns={
-        'player_last_3_avg_temp': 'player_last_3_avg'
+        'player_avg_minutes_temp': 'player_avg_minutes',
+        'player_last_3_avg_temp': 'player_last_3_avg',
+        'player_consistency_temp': 'player_consistency',
+        'performance_trend_temp': 'performance_trend'
     }, inplace=True)
-    
+
+    features_temporales['momentum'] = features_temporales['player_last_3_avg'] - features_temporales['player_avg_minutes']
+
     return features_temporales
 
 def create_features(df):
     df = df.copy()
-    
+
+    df['market_value_missing'] = df['market_value'].isna().astype(int)
     df['market_value'] = df['market_value'].fillna(0)
-    
     df['market_value_log'] = np.log1p(df['market_value'])
-    
-    peak_age = 26
-    df['value_age_decay'] = df['market_value'] * np.exp(-0.05 * np.abs(df['age'] - peak_age))
-    
+    df['value_age_decay'] = df['market_value'] / (df['age'] ** 2)
     df['captain_x_market'] = df['captain'] * df['market_value_log']
-    
+
     position_rank = {'G': 1, 'D': 2, 'M': 3, 'F': 4}
     df['position_rank'] = df['position'].map(position_rank)
     df['position_x_age'] = df['position_rank'] * df['age']
-
-    df['player_convocations'] = df['age'] - 16
-
-    team_avg = df.groupby('team')['market_value'].transform('mean')
-    df['team_avg_market_value'] = team_avg
-    
-    df['player_value_vs_team'] = df['market_value'] / (team_avg + 1)
 
     df['pos_D'] = (df['position'] == 'D').astype(int)
     df['pos_F'] = (df['position'] == 'F').astype(int)
     df['pos_G'] = (df['position'] == 'G').astype(int)
     df['pos_M'] = (df['position'] == 'M').astype(int)
-    
+
+    df['player_convocations'] = df['age'] - 16
+
+    team_avg = df.groupby('team')['market_value'].transform('mean')
+    df['team_avg_market_value'] = team_avg
+    df['player_value_vs_team'] = df['market_value'] / (team_avg + 1)
 
     country_freq = df['country_'].value_counts(normalize=True)
     df['country_frequency'] = df['country_'].map(country_freq).fillna(0)
-    
 
     team_freq = df['team'].value_counts(normalize=True)
     df['team_frequency'] = df['team'].map(team_freq).fillna(0)
-    
 
-    df['age_group'] = pd.cut(
-        df['age'], 
-        bins=[0, 21, 25, 29, 33, 50], 
-        labels=[0, 1, 2, 3, 4]
-    )
+    df['age_group'] = pd.cut(df['age'], bins=[0, 21, 25, 29, 33, 50], labels=[0, 1, 2, 3, 4])
     df['age_group_encoded'] = df['age_group'].astype(int)
-    
 
-    df['market_tier'] = pd.cut(
-        df['market_value'],
-        bins=[0, 1e6, 5e6, 15e6, 30e6, np.inf],
-        labels=[0, 1, 2, 3, 4]
-    )
+    df['market_tier'] = pd.cut(df['market_value'], bins=[0, 1e6, 5e6, 15e6, 30e6, np.inf], labels=[0, 1, 2, 3, 4])
     df['market_tier_encoded'] = df['market_tier'].astype(int)
-    
 
     df = df.replace([np.inf, -np.inf], 0)
     df = df.fillna(0)
-    
+
     return df
 
-
 def get_feature_columns():
-
     return [
-        'market_value_log',
-        'value_age_decay',
-        'captain_x_market',
-        'position_x_age',
-        'player_convocations',
-        'player_last_3_avg',
-        'team_avg_market_value',
-        'player_value_vs_team',
-        'pos_D',
-        'pos_F',
-        'pos_G',
-        'pos_M',
-        'country_frequency',
-        'team_frequency',
-        'age_group_encoded',
+        'market_value_missing', 'market_value_log', 'value_age_decay',
+        'captain_x_market', 'position_x_age', 'player_convocations',
+        'player_avg_minutes', 'player_last_3_avg', 'player_consistency',
+        'performance_trend', 'momentum', 'team_avg_market_value',
+        'player_value_vs_team', 'pos_D', 'pos_F', 'pos_G', 'pos_M',
+        'country_frequency', 'team_frequency', 'age_group_encoded',
         'market_tier_encoded'
     ]
 
 def select_best_11_by_formation(df, model, scaler, team):
-
     team_df = df[df['team'] == team].copy()
-    
+
     if len(team_df) == 0:
         return None, None
-    
-    # Crear features
-    team_df = create_features(team_df)
-    
 
+    team_df = create_features(team_df)
     feature_cols = get_feature_columns()
-    
-    # DEBUG: Ver qué columnas tenemos vs qué necesitamos
-    missing_cols = [col for col in feature_cols if col not in team_df.columns]
-    if missing_cols:
-        st.error(f"❌ Columnas faltantes: {missing_cols}")
-        st.info(f"Columnas disponibles: {list(team_df.columns)}")
-        return None, None
-    
-    # Seleccionar SOLO las 16 columnas en el orden correcto
-    X = team_df[feature_cols].copy()
-    
-    # Verificar que no haya NaN o Inf
-    X = X.replace([np.inf, -np.inf], 0)
-    X = X.fillna(0)
-    
-    # DEBUG: Mostrar shape y primeras columnas
-    st.sidebar.info(f"🔢 X shape: {X.shape}")
-    st.sidebar.info(f"📋 Primeras 5 cols: {list(X.columns[:5])}")
-    
-    try:
-        X_scaled = scaler.transform(X)
-    except ValueError as e:
-        st.error(f"❌ Error al escalar: {e}")
-        st.info(f"Features esperadas por scaler: (revisar logs)")
-        st.info(f"Features que tenemos: {list(X.columns)}")
-        return None, None
-    
+    X = team_df[feature_cols]
+    X_scaled = scaler.transform(X)
+
     probabilities = model.predict_proba(X_scaled)[:, 1]
-    
     team_df['probability'] = probabilities
-    
-    formation = {
-        'G': 1,
-        'D': 4,
-        'M': 3,
-        'F': 3
-    }
-    
+
+    formation = {'G': 1, 'D': 4, 'M': 3, 'F': 3}
     lineup = {}
     starters_ids = []
-    
+
     for position, num_players in formation.items():
         position_players = team_df[team_df['position'] == position].copy()
-        
+
         if len(position_players) == 0:
             lineup[position] = []
             continue
-        
+
         position_players = position_players.sort_values('probability', ascending=False)
         best_players = position_players.head(num_players)
         best_players['rank'] = range(1, len(best_players) + 1)
-        
+
         starters_ids.extend(best_players['id_player'].tolist())
-        lineup[position] = best_players[['id_player', 'position', 'player_name', 
-                                          'shirt_number', 'probability', 'captain']].to_dict('records')
-    
-    # Banca
+
+        lineup[position] = best_players[[
+            'id_player', 'position', 'player_name', 'shirt_number',
+            'probability', 'captain'
+        ]].to_dict('records')
+
     bench_df = team_df[~team_df['id_player'].isin(starters_ids)].copy()
     bench_df = bench_df.sort_values('probability', ascending=False)
     bench_df['bench_rank'] = range(1, len(bench_df) + 1)
-    
-    bench_players = bench_df[['id_player', 'player_name', 'shirt_number', 
-                               'position', 'probability', 'bench_rank']].to_dict('records')
-    
+
+    bench_players = bench_df[[
+        'id_player', 'player_name', 'shirt_number', 'position', 
+        'probability', 'bench_rank'
+    ]].to_dict('records')
+
     return lineup, bench_players
 
 def normalize_team_name(name):
@@ -912,54 +856,28 @@ def display_team_matches(df_matches, team_name):
 
 @st.cache_data
 def load_data():
-
     historico_path = Path("data/historico.csv")
     convocatoria_path = Path("data/convocatoria_siguiente.csv")
     jugadores_path = Path("data/jugadores_info.csv")
-    
+
     if not historico_path.exists():
-        st.error(f"❌ No se encontró {historico_path}")
+        st.error(f"❌ No se encontró: {historico_path}")
         st.stop()
-    
+
     if not convocatoria_path.exists():
-        st.error(f"❌ No se encontró {convocatoria_path}")
+        st.error(f"❌ No se encontró: {convocatoria_path}")
         st.stop()
-    
+
     df_historico = pd.read_csv(historico_path)
     df_features_temporales = calculate_temporal_features_from_history(df_historico)
-    
     df_convocatoria = pd.read_csv(convocatoria_path)
-    
+
     df_final = df_convocatoria.merge(
-        df_features_temporales[['id_player', 'player_last_3_avg']],  # SOLO estas 2 columnas
+        df_features_temporales[['id_player', 'player_avg_minutes', 'player_last_3_avg',
+                                 'player_consistency', 'performance_trend', 'momentum']],
         on='id_player',
         how='left'
     )
-    
-    if jugadores_path.exists():
-        df_jugadores = pd.read_csv(jugadores_path)
-        df_final = df_final.merge(
-            df_jugadores[['id_player', 'player_name', 'shirt_number']],
-            on='id_player',
-            how='left'
-        )
-        
-        df_final['player_name'] = df_final['player_name'].fillna(
-            df_final['id_player'].astype(str).apply(lambda x: f"Jugador {x}")
-        )
-        df_final['shirt_number'] = df_final['shirt_number'].fillna(0).astype(int)
-    else:
-        st.warning("⚠️ No se encontró data/jugadores_info.csv")
-        df_final['player_name'] = df_final['id_player'].astype(str).apply(lambda x: f"Jugador {x}")
-        df_final['shirt_number'] = 0
- 
-    df_final['player_last_3_avg'].fillna(45.0, inplace=True)
-    
-    df_final['captain'] = df_final['captain'].apply(
-        lambda x: 1 if x in [True, 1, '1'] else 0
-    )
-    
-    return df_final
 
     if jugadores_path.exists():
         df_jugadores = pd.read_csv(jugadores_path)
